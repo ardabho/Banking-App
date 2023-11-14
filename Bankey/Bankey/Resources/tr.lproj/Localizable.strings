@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  Bankey
+
+  Created by ARDA BUYUKHATIPOGLU on 14.11.2023.
+  
+*/
+
+"login.title" = "Bankey";
+"login.description" = "Bankacılıkla ilgili her şey için premium kaynağınız!";
+"login.username" = "Kullanıcı Adı";
+"login.password" = "Şifre";
+"login.button.title" = "Giriş Yap";
+"login.error.empty.username" = "Kullanıcı adı boş olamaz";
+"login.error.empty.password" = "Şifre boş olamaz";
+"login.error.empty.username.and.password" = "Kullanıcı adı ve şifre boş olamaz";
