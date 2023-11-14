@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  Bankey
+
+  Created by ARDA BUYUKHATIPOGLU on 14.11.2023.
+  
+*/
+
+"login.title" = "Bankey";
+"login.description" = "Your premium source for all things banking!";
+"login.username" = "Username";
+"login.password" = "Password";
+"login.button.title" = "Sign In";
+"login.error.empty.username" = "Username can't be empty";
+"login.error.empty.password" = "Password can't be empty";
+"login.error.empty.username.and.password" = "Username and Password can't be empty";
