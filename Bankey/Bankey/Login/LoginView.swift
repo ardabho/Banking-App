@@ -33,8 +33,8 @@ class LoginView: UIView {
         return view
     }()
     
-    let stackView: UIStackView = {
-       let stack = UIStackView()
+    private let stackView: UIStackView = {
+        let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.spacing = 8
@@ -70,7 +70,7 @@ extension LoginView {
     }
     
     func layout() {
-
+        
         addSubview(stackView)
         
         stackView.addArrangedSubview(userNameTextField)
@@ -99,11 +99,7 @@ extension LoginView: UITextFieldDelegate {
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if textField.text != "" {
-            return true
-        } else {
-            return false
-        }
+        return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

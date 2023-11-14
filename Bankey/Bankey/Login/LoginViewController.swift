@@ -85,22 +85,20 @@ extension LoginViewController {
             titleLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor),
         ])
+        
         //Description label constraints:
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3),
             descriptionLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor),
-            
         ])
+        
         //LoginView Constraints
         NSLayoutConstraint.activate([
             loginView.topAnchor.constraint(equalToSystemSpacingBelow: descriptionLabel.bottomAnchor, multiplier: 2),
             view.safeAreaLayoutGuide.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 1),
             loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.leadingAnchor, multiplier: 1),
             loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            
-            
-            
         ])
         
         //SignInButton Constraints
@@ -126,25 +124,32 @@ extension LoginViewController {
             return
         }
         
-        guard !username.trimmingCharacters(in: .whitespaces).isEmpty && !password.trimmingCharacters(in: .whitespaces).isEmpty else {
-            errorMessageLabel.text = L10n.emptyUsernameAndPasswordError
-            errorMessageLabel.isHidden = false
+        guard !username.trimmingCharacters(in: .whitespaces).isEmpty || !password.trimmingCharacters(in: .whitespaces).isEmpty else {
+            configureView(withMessage: L10n.emptyUsernameAndPasswordError)
             return
         }
         
         guard !username.trimmingCharacters(in: .whitespaces).isEmpty else {
-            errorMessageLabel.text = L10n.emptyUsernameError
-            errorMessageLabel.isHidden = false
+            configureView(withMessage: L10n.emptyUsernameError)
             return
         }
         
         guard !password.trimmingCharacters(in: .whitespaces).isEmpty else {
-            errorMessageLabel.text = L10n.emptyPasswordError
-            errorMessageLabel.isHidden = false
+            configureView(withMessage: L10n.emptyPasswordError)
             return
         }
         
-        
+        if username == "Kevin" && password == "Welcome" {
+            signInButton.configuration?.showsActivityIndicator = true
+            return
+        } else {
+            configureView(withMessage: L10n.incorrectUsernameOrPassword)
+            return
+        }
+    }
+    
+    private func configureView(withMessage message: String) {
+        errorMessageLabel.isHidden = false
+        errorMessageLabel.text = message
     }
 }
-

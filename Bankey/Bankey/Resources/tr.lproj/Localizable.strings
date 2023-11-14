@@ -14,3 +14,7 @@
 "login.error.empty.username" = "Kullanıcı adı boş olamaz";
 "login.error.empty.password" = "Şifre boş olamaz";
 "login.error.empty.username.and.password" = "Kullanıcı adı ve şifre boş olamaz";
+"login.error.incorrect.username.or.password" = "Yanlış kullanıcı adı veya şifre";
+"onboarding.first.description" = "Bankey daha hızlı, kullanımı daha kolay ve kendinizi 1989'daymış gibi hissetmenizi sağlayacak yepyeni bir görünüme ve hisse sahip.";
+"onboarding.second.description" = "Paranızı dünyanın her yerine hızlı ve güvenli bir şekilde taşıyın.";
+"onboarding.third.description" = "Daha fazla bilgiyi www.bankey.com adresinde bulabilirsiniz.";
