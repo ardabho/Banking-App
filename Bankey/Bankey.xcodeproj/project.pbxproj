@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9909744C2B0600D900E54913 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9909744B2B0600D900E54913 /* Protocols.swift */; };
 		99980C292B027399007781E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99980C282B027399007781E7 /* AppDelegate.swift */; };
 		99980C2D2B027399007781E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99980C2C2B027399007781E7 /* LoginViewController.swift */; };
 		99980C322B02739B007781E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99980C312B02739B007781E7 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9909744B2B0600D900E54913 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		99980C252B027399007781E7 /* Bankey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bankey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99980C282B027399007781E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99980C2C2B027399007781E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -63,11 +65,12 @@
 		99980C272B027399007781E7 /* Bankey */ = {
 			isa = PBXGroup;
 			children = (
+				99980C3D2B027FA5007781E7 /* Login */,
 				99980C4F2B03B0E8007781E7 /* Onboarding */,
 				99980C402B0378FC007781E7 /* Resources */,
 				99980C3C2B027F4B007781E7 /* Files */,
-				99980C3D2B027FA5007781E7 /* Login */,
 				99980C282B027399007781E7 /* AppDelegate.swift */,
+				9909744B2B0600D900E54913 /* Protocols.swift */,
 			);
 			path = Bankey;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			files = (
 				99980C4E2B037E75007781E7 /* L10n.swift in Sources */,
 				99980C532B03CAC4007781E7 /* OnboardingViewController.swift in Sources */,
+				9909744C2B0600D900E54913 /* Protocols.swift in Sources */,
 				99980C3F2B028198007781E7 /* LoginView.swift in Sources */,
 				99980C2D2B027399007781E7 /* LoginViewController.swift in Sources */,
 				99980C512B03B119007781E7 /* OnboardingContainerViewController.swift in Sources */,

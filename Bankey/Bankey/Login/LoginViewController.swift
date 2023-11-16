@@ -8,7 +8,9 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
+    weak var delegate: LoginViewControllerDelegate?
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -141,6 +143,7 @@ extension LoginViewController {
         
         if username == "Kevin" && password == "Welcome" {
             signInButton.configuration?.showsActivityIndicator = true
+            delegate?.didLogin(self)
             return
         } else {
             configureView(withMessage: L10n.incorrectUsernameOrPassword)

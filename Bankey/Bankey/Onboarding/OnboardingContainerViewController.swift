@@ -9,6 +9,16 @@ import UIKit
 
 class OnboardingContainerViewController: UIViewController {
     
+    private var closeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(L10n.buttonClose, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 18)
+        return button
+    }()
+    
+    weak var delegate: OnboardingContainerViewControllerDelegate?
+    
     private lazy var pageViewController: UIPageViewController = {
         let pageVC = UIPageViewController(transitionStyle: .scroll,
                                           navigationOrientation: .horizontal)
@@ -20,11 +30,7 @@ class OnboardingContainerViewController: UIViewController {
     
     var pages = [UIViewController]()
     
-    var currentVC: UIViewController? {
-        didSet {
-            
-        }
-    }
+    var currentVC: UIViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +39,10 @@ class OnboardingContainerViewController: UIViewController {
         
         addChild(pageViewController)
         view.addSubview(pageViewController.view)
-        pageViewController.didMove(toParent: self)
+        view.addSubview(closeButton)
         
+        pageViewController.didMove(toParent: self)
+        closeButton.addTarget(self, action: #selector(didTapClose), for: .primaryActionTriggered)
         configurePageVC()
     }
     
@@ -59,8 +67,17 @@ class OnboardingContainerViewController: UIViewController {
             pageViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
         
+        NSLayoutConstraint.activate([
+            closeButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
+            closeButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2)
+        ])
+        
         currentVC = pages.first!
         
+    }
+    
+    @objc private func didTapClose(_ sender: UIButton) {
+        delegate?.didFinishOnboarding(self)
     }
 }
 

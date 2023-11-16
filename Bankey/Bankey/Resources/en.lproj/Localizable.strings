@@ -15,6 +15,12 @@
 "login.error.empty.password" = "Password can't be empty";
 "login.error.empty.username.and.password" = "Username and Password can't be empty";
 "login.error.incorrect.username.or.password" = "Incorrect username or password";
+
 "onboarding.first.description" = "Bankey is faster, easier to use, and has a brand new look and feel that will make you feel like you are back in 1989.";
 "onboarding.second.description" = "Move your money around the world quickly and securely.";
 "onboarding.third.description" = "Learn more at www.bankey.com.";
+
+"button.close" = "Close";
+"button.previous" = "Previous";
+"button.next" = "Next";
+"button.logout" = "Logout";

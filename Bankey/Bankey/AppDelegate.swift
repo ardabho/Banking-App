@@ -12,11 +12,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    private let loginVC = LoginViewController()
+    private let onboardingVC = OnboardingContainerViewController()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-//        window?.rootViewController = LoginViewController()
-        window?.rootViewController = OnboardingContainerViewController()
+        
+        loginVC.delegate = self
+        onboardingVC.delegate = self
+        
+//        window?.rootViewController = loginVC
+        window?.rootViewController = onboardingVC
         window?.backgroundColor = .systemBackground
         window?.makeKeyAndVisible()
         
@@ -25,3 +32,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 }
 
+extension AppDelegate: LoginViewControllerDelegate {
+    func didLogin(_ sender: LoginViewController) {
+        setRootViewController(onboardingVC)
+    }
+    
+    
+}
+
+extension AppDelegate: OnboardingContainerViewControllerDelegate {
+    func didFinishOnboarding(_ sender: OnboardingContainerViewController) {
+        print("info: didFinishOnboarding")
+    }
+}
+
+extension AppDelegate {
+    func setRootViewController(_ vc: UIViewController, animated: Bool = true) {
+        guard animated, let window = self.window else {
+            self.window?.rootViewController = vc
+            self.window?.makeKeyAndVisible()
+            return
+        }
+        
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
+        UIView.transition(with: window,
+                          duration: 0.3,
+                          options: .transitionCrossDissolve,
+                          animations: nil,
+                          completion: nil)
+    }
+}
