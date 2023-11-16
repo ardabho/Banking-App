@@ -24,3 +24,7 @@
 "button.previous" = "Previous";
 "button.next" = "Next";
 "button.logout" = "Logout";
+
+"tabbar.summary" = "Summary";
+"tabbar.move" = "Move Money";
+"tabbar.more" = "More";

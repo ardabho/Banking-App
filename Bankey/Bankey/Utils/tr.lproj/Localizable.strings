@@ -24,3 +24,7 @@
 "button.previous" = "Önceki";
 "button.next" = "Sonraki";
 "button.logout" = "Çıkış yap";
+
+"tabbar.summary" = "Özet";
+"tabbar.move" = "Para Taşı";
+"tabbar.more" = "Daha";

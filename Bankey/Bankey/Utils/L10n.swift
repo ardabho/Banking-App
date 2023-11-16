@@ -27,4 +27,7 @@ class L10n {
     static let buttonNext = NSLocalizedString("button.next", comment: "text for next button")
     static let buttonLogout = NSLocalizedString("button.logout", comment: "text for logout button")
     
+    static let summary = NSLocalizedString("tabbar.summary", comment: "tab bar text: summary")
+    static let moveMoney = NSLocalizedString("tabbar.move", comment: "tab bar text: move")
+    static let more = NSLocalizedString("tabbar.more", comment: "tab bar text: more")
 }

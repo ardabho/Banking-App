@@ -14,18 +14,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private let loginVC = LoginViewController()
     private let onboardingVC = OnboardingContainerViewController()
-    private let dummyViewController = DummyViewController()
-    
+    private let mainTabBarController = MainTabBarController()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
         loginVC.delegate = self
         onboardingVC.delegate = self
-        dummyViewController.logoutDelegate = self
+        
         
         //        window?.rootViewController = loginVC
-        window?.rootViewController = onboardingVC
+//        window?.rootViewController = onboardingVC
+        window?.rootViewController = mainTabBarController
         window?.backgroundColor = .systemBackground
         window?.makeKeyAndVisible()
         
@@ -55,7 +55,7 @@ extension AppDelegate {
 extension AppDelegate: LoginViewControllerDelegate {
     func didLogin(_ sender: LoginViewController) {
         if LocalState.hasOnboarded {
-            setRootViewController(dummyViewController)
+            setRootViewController(mainTabBarController)
         } else {
             setRootViewController(onboardingVC)
         }
@@ -66,7 +66,7 @@ extension AppDelegate: LoginViewControllerDelegate {
 extension AppDelegate: OnboardingContainerViewControllerDelegate {
     func didFinishOnboarding(_ sender: OnboardingContainerViewController) {
         LocalState.hasOnboarded = true
-        setRootViewController(dummyViewController)
+        setRootViewController(mainTabBarController)
     }
 }
 extension AppDelegate: LogoutDelegate {
