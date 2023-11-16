@@ -9,11 +9,12 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
     private let loginVC = LoginViewController()
     private let onboardingVC = OnboardingContainerViewController()
+    private let dummyViewController = DummyViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -21,8 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         loginVC.delegate = self
         onboardingVC.delegate = self
+        dummyViewController.logoutDelegate = self
         
-//        window?.rootViewController = loginVC
+        //        window?.rootViewController = loginVC
         window?.rootViewController = onboardingVC
         window?.backgroundColor = .systemBackground
         window?.makeKeyAndVisible()
@@ -30,20 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-}
-
-extension AppDelegate: LoginViewControllerDelegate {
-    func didLogin(_ sender: LoginViewController) {
-        setRootViewController(onboardingVC)
-    }
-    
-    
-}
-
-extension AppDelegate: OnboardingContainerViewControllerDelegate {
-    func didFinishOnboarding(_ sender: OnboardingContainerViewController) {
-        print("info: didFinishOnboarding")
-    }
 }
 
 extension AppDelegate {
@@ -63,3 +51,29 @@ extension AppDelegate {
                           completion: nil)
     }
 }
+
+extension AppDelegate: LoginViewControllerDelegate {
+    func didLogin(_ sender: LoginViewController) {
+        if LocalState.hasOnboarded {
+            setRootViewController(dummyViewController)
+        } else {
+            setRootViewController(onboardingVC)
+        }
+        
+    }
+}
+
+extension AppDelegate: OnboardingContainerViewControllerDelegate {
+    func didFinishOnboarding(_ sender: OnboardingContainerViewController) {
+        LocalState.hasOnboarded = true
+        setRootViewController(dummyViewController)
+    }
+}
+extension AppDelegate: LogoutDelegate {
+    func didLogout() {
+        setRootViewController(loginVC)
+
+    }
+}
+
+
