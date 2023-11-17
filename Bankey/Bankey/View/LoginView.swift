@@ -41,6 +41,14 @@ class LoginView: UIView {
         return stack
     }()
     
+    private let passwordToggleButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(systemName: "eye.fill"), for: .normal)
+        button.setImage(UIImage(systemName: "eye.slash.fill"), for: .selected)
+        
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -49,6 +57,8 @@ class LoginView: UIView {
         
         style()
         layout()
+        configurePasswordToggle()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -59,7 +69,7 @@ class LoginView: UIView {
 
 extension LoginView {
     
-    func style() {
+    private func style() {
         backgroundColor = .secondarySystemBackground
         
         layer.cornerRadius = 5
@@ -69,7 +79,7 @@ extension LoginView {
         layer.shadowRadius = 4
     }
     
-    func layout() {
+    private func layout() {
         
         addSubview(stackView)
         
@@ -87,6 +97,18 @@ extension LoginView {
         
         dividerView.heightAnchor.constraint(equalToConstant: 1).isActive = true
         
+    }
+    
+    private func configurePasswordToggle() {
+        let action = UIAction { [weak self] _ in
+            self?.passwordTextField.isSecureTextEntry.toggle()
+            self?.passwordToggleButton.isSelected.toggle()
+        }
+        
+        passwordToggleButton.addAction(action, for: .primaryActionTriggered)
+        
+        passwordTextField.rightView = passwordToggleButton
+        passwordTextField.rightViewMode = .always
     }
 }
 

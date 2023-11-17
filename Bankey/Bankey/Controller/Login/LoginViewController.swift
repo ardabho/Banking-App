@@ -8,7 +8,9 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
+    weak var delegate: LoginViewControllerDelegate?
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -62,6 +64,13 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         style()
         layout()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        signInButton.configuration?.showsActivityIndicator = false
+        loginView.userNameTextField.text = ""
+        loginView.passwordTextField.text = ""
     }
 }
 
@@ -139,8 +148,9 @@ extension LoginViewController {
             return
         }
         
-        if username == "Kevin" && password == "Welcome" {
+        if username == "Asd" && password == "asd" {
             signInButton.configuration?.showsActivityIndicator = true
+            delegate?.didLogin(self)
             return
         } else {
             configureView(withMessage: L10n.incorrectUsernameOrPassword)
