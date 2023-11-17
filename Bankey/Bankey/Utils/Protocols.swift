@@ -14,7 +14,3 @@ protocol LoginViewControllerDelegate: AnyObject {
 protocol OnboardingContainerViewControllerDelegate: AnyObject {
     func didFinishOnboarding(_ sender: OnboardingContainerViewController)
 }
-
-protocol LogoutDelegate: AnyObject {
-    func didLogout()
-}

@@ -36,3 +36,7 @@ extension Decimal {
         return NSDecimalNumber(decimal:self).doubleValue
     }
 }
+
+extension Notification.Name {
+    static let Logout = Notification.Name("Logout")
+}

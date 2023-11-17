@@ -31,6 +31,7 @@ class SummaryTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "No-Fee All- In Chequing"
         label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -47,6 +48,7 @@ class SummaryTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .right
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
