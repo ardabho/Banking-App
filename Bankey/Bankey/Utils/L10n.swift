@@ -31,3 +31,4 @@ class L10n {
     static let moveMoney = NSLocalizedString("tabbar.move", comment: "tab bar text: move")
     static let more = NSLocalizedString("tabbar.more", comment: "tab bar text: more")
 }
+

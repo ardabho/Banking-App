@@ -77,12 +77,14 @@ class SummaryTableViewCell: UITableViewCell {
         balanceStackView.addArrangedSubview(balanceLabel)
         balanceStackView.addArrangedSubview(balanceAmountLabel)
         
-        balanceAmountLabel.attributedText = makeFormattedBalance(dollars: "929,466", cents: "63")
+        balanceAmountLabel.attributedText = makeFormattedBalance(dollars: "XXX,XXX", cents: "XX")
         
         layout()
     }
     
     private func layout() {
+        
+        underlineView.layer.cornerRadius = 2
         
         NSLayoutConstraint.activate([
             typeLabel.topAnchor.constraint(equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 2),
@@ -92,6 +94,7 @@ class SummaryTableViewCell: UITableViewCell {
             underlineView.leadingAnchor.constraint(equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 2),
             underlineView.widthAnchor.constraint(equalToConstant: 60),
             underlineView.heightAnchor.constraint(equalToConstant: 4),
+            
             
             nameLabel.topAnchor.constraint(equalToSystemSpacingBelow: underlineView.bottomAnchor, multiplier: 2),
             nameLabel.leadingAnchor.constraint(equalTo: underlineView.leadingAnchor),
@@ -121,6 +124,23 @@ class SummaryTableViewCell: UITableViewCell {
         return rootString
     }
     
+    func configure(with vm: SummaryCellViewModel) {
+        
+        typeLabel.text = vm.accountType.localizedString
+        nameLabel.text = vm.accountName
+        balanceAmountLabel.attributedText = vm.balanceAsAttributedString
+        switch vm.accountType {
+        case .Banking:
+            balanceLabel.text = "Current balance"
+            underlineView.backgroundColor = Colors.appColor
+        case .CreditCard:
+            balanceLabel.text = "Current balance"
+            underlineView.backgroundColor = Colors.orange
+        case .Investment:
+            balanceLabel.text = "Value"
+            underlineView.backgroundColor = Colors.purple
+        }
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

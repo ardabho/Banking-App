@@ -26,6 +26,8 @@
 		99E28A662B06523200FFB000 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A652B06523200FFB000 /* MoreViewController.swift */; };
 		99E28A682B06989800FFB000 /* SummaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A672B06989800FFB000 /* SummaryHeaderView.swift */; };
 		99E28A6A2B06B80100FFB000 /* SummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A692B06B80100FFB000 /* SummaryTableViewCell.swift */; };
+		99E28A6C2B07644800FFB000 /* SummaryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A6B2B07644800FFB000 /* SummaryCellViewModel.swift */; };
+		99E28A6E2B0791B900FFB000 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A6D2B0791B900FFB000 /* CurrencyFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		99E28A652B06523200FFB000 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		99E28A672B06989800FFB000 /* SummaryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryHeaderView.swift; sourceTree = "<group>"; };
 		99E28A692B06B80100FFB000 /* SummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTableViewCell.swift; sourceTree = "<group>"; };
+		99E28A6B2B07644800FFB000 /* SummaryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCellViewModel.swift; sourceTree = "<group>"; };
+		99E28A6D2B0791B900FFB000 /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 				9909744B2B0600D900E54913 /* Protocols.swift */,
 				99E28A5F2B064EDA00FFB000 /* Extensions.swift */,
 				99E28A612B06506D00FFB000 /* Colors.swift */,
+				99E28A6D2B0791B900FFB000 /* CurrencyFormatter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 		99E28A532B06449000FFB000 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				99E28A6B2B07644800FFB000 /* SummaryCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -251,12 +257,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99E28A6C2B07644800FFB000 /* SummaryCellViewModel.swift in Sources */,
 				99E28A662B06523200FFB000 /* MoreViewController.swift in Sources */,
 				99980C4E2B037E75007781E7 /* L10n.swift in Sources */,
 				99E28A512B063FF200FFB000 /* LocalState.swift in Sources */,
 				99E28A5B2B064C6A00FFB000 /* MainTabBarController.swift in Sources */,
 				99980C532B03CAC4007781E7 /* OnboardingViewController.swift in Sources */,
 				99E28A642B06522900FFB000 /* MoveMoneyViewController.swift in Sources */,
+				99E28A6E2B0791B900FFB000 /* CurrencyFormatter.swift in Sources */,
 				99E28A6A2B06B80100FFB000 /* SummaryTableViewCell.swift in Sources */,
 				99E28A5E2B064D4600FFB000 /* SummaryViewController.swift in Sources */,
 				9909744C2B0600D900E54913 /* Protocols.swift in Sources */,

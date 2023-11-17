@@ -24,10 +24,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         //        window?.rootViewController = loginVC
-//        window?.rootViewController = onboardingVC
+        //        window?.rootViewController = onboardingVC
+        
         window?.rootViewController = mainTabBarController
         window?.backgroundColor = .systemBackground
         window?.makeKeyAndVisible()
+        
+        mainTabBarController.setStatusBar()
+//        UINavigationBar.appearance().isTranslucent = false
+//        UINavigationBar.appearance().backgroundColor = Colors.appColor
         
         return true
     }

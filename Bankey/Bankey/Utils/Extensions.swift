@@ -30,3 +30,9 @@ extension NSLayoutConstraint {
         return self
     }
 }
+
+extension Decimal {
+    var doubleValue: Double {
+        return NSDecimalNumber(decimal:self).doubleValue
+    }
+}
