@@ -20,10 +20,12 @@
 		99E28A512B063FF200FFB000 /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A502B063FF200FFB000 /* LocalState.swift */; };
 		99E28A5B2B064C6A00FFB000 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A5A2B064C6A00FFB000 /* MainTabBarController.swift */; };
 		99E28A5E2B064D4600FFB000 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A5D2B064D4600FFB000 /* SummaryViewController.swift */; };
-		99E28A602B064EDA00FFB000 /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A5F2B064EDA00FFB000 /* UIViewController+Utils.swift */; };
+		99E28A602B064EDA00FFB000 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A5F2B064EDA00FFB000 /* Extensions.swift */; };
 		99E28A622B06506D00FFB000 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A612B06506D00FFB000 /* Colors.swift */; };
 		99E28A642B06522900FFB000 /* MoveMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A632B06522900FFB000 /* MoveMoneyViewController.swift */; };
 		99E28A662B06523200FFB000 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A652B06523200FFB000 /* MoreViewController.swift */; };
+		99E28A682B06989800FFB000 /* SummaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A672B06989800FFB000 /* SummaryHeaderView.swift */; };
+		99E28A6A2B06B80100FFB000 /* SummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A692B06B80100FFB000 /* SummaryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,10 +45,12 @@
 		99E28A502B063FF200FFB000 /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
 		99E28A5A2B064C6A00FFB000 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		99E28A5D2B064D4600FFB000 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
-		99E28A5F2B064EDA00FFB000 /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
+		99E28A5F2B064EDA00FFB000 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		99E28A612B06506D00FFB000 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		99E28A632B06522900FFB000 /* MoveMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveMoneyViewController.swift; sourceTree = "<group>"; };
 		99E28A652B06523200FFB000 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		99E28A672B06989800FFB000 /* SummaryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryHeaderView.swift; sourceTree = "<group>"; };
+		99E28A692B06B80100FFB000 /* SummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +111,7 @@
 				99980C4B2B037B80007781E7 /* Localizable.strings */,
 				99E28A502B063FF200FFB000 /* LocalState.swift */,
 				9909744B2B0600D900E54913 /* Protocols.swift */,
-				99E28A5F2B064EDA00FFB000 /* UIViewController+Utils.swift */,
+				99E28A5F2B064EDA00FFB000 /* Extensions.swift */,
 				99E28A612B06506D00FFB000 /* Colors.swift */,
 			);
 			path = Utils;
@@ -131,6 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				99980C3E2B028198007781E7 /* LoginView.swift */,
+				99E28A672B06989800FFB000 /* SummaryHeaderView.swift */,
+				99E28A692B06B80100FFB000 /* SummaryTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,12 +257,14 @@
 				99E28A5B2B064C6A00FFB000 /* MainTabBarController.swift in Sources */,
 				99980C532B03CAC4007781E7 /* OnboardingViewController.swift in Sources */,
 				99E28A642B06522900FFB000 /* MoveMoneyViewController.swift in Sources */,
+				99E28A6A2B06B80100FFB000 /* SummaryTableViewCell.swift in Sources */,
 				99E28A5E2B064D4600FFB000 /* SummaryViewController.swift in Sources */,
 				9909744C2B0600D900E54913 /* Protocols.swift in Sources */,
 				99980C3F2B028198007781E7 /* LoginView.swift in Sources */,
 				99980C2D2B027399007781E7 /* LoginViewController.swift in Sources */,
 				99E28A622B06506D00FFB000 /* Colors.swift in Sources */,
-				99E28A602B064EDA00FFB000 /* UIViewController+Utils.swift in Sources */,
+				99E28A682B06989800FFB000 /* SummaryHeaderView.swift in Sources */,
+				99E28A602B064EDA00FFB000 /* Extensions.swift in Sources */,
 				99980C512B03B119007781E7 /* OnboardingContainerViewController.swift in Sources */,
 				99980C292B027399007781E7 /* AppDelegate.swift in Sources */,
 			);
