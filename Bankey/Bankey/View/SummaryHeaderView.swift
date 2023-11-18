@@ -55,6 +55,7 @@ class SummaryHeaderView: UITableViewHeaderFooterView {
         return label
     }()
     
+    
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .callout)
