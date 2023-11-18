@@ -68,7 +68,6 @@ class LoginViewController: UIViewController {
     
     var titleLeadingAnchor: NSLayoutConstraint?
     var descriptionLeadingAnchor: NSLayoutConstraint?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
@@ -121,6 +120,7 @@ extension LoginViewController {
         descriptionLeadingAnchor = descriptionLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: leadingEdgeOffScreen)
         descriptionLeadingAnchor?.isActive = true
         
+
         //LoginView Constraints
         NSLayoutConstraint.activate([
             loginView.topAnchor.constraint(equalToSystemSpacingBelow: descriptionLabel.bottomAnchor, multiplier: 2),
