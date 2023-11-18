@@ -17,6 +17,7 @@
 		99980C4E2B037E75007781E7 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99980C4D2B037E75007781E7 /* L10n.swift */; };
 		99980C512B03B119007781E7 /* OnboardingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99980C502B03B119007781E7 /* OnboardingContainerViewController.swift */; };
 		99980C532B03CAC4007781E7 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99980C522B03CAC4007781E7 /* OnboardingViewController.swift */; };
+		99C222702B0908E8008437D5 /* ShakeyBellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C2226F2B0908E8008437D5 /* ShakeyBellView.swift */; };
 		99E28A512B063FF200FFB000 /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A502B063FF200FFB000 /* LocalState.swift */; };
 		99E28A5B2B064C6A00FFB000 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A5A2B064C6A00FFB000 /* MainTabBarController.swift */; };
 		99E28A5E2B064D4600FFB000 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A5D2B064D4600FFB000 /* SummaryViewController.swift */; };
@@ -55,6 +56,7 @@
 		99980C4D2B037E75007781E7 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		99980C502B03B119007781E7 /* OnboardingContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerViewController.swift; sourceTree = "<group>"; };
 		99980C522B03CAC4007781E7 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		99C2226F2B0908E8008437D5 /* ShakeyBellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeyBellView.swift; sourceTree = "<group>"; };
 		99E28A502B063FF200FFB000 /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
 		99E28A5A2B064C6A00FFB000 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		99E28A5D2B064D4600FFB000 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				99980C3E2B028198007781E7 /* LoginView.swift */,
 				99E28A672B06989800FFB000 /* SummaryHeaderView.swift */,
 				99E28A692B06B80100FFB000 /* SummaryTableViewCell.swift */,
+				99C2226F2B0908E8008437D5 /* ShakeyBellView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				99E28A662B06523200FFB000 /* MoreViewController.swift in Sources */,
 				99980C4E2B037E75007781E7 /* L10n.swift in Sources */,
 				99E28A512B063FF200FFB000 /* LocalState.swift in Sources */,
+				99C222702B0908E8008437D5 /* ShakeyBellView.swift in Sources */,
 				99E28A5B2B064C6A00FFB000 /* MainTabBarController.swift in Sources */,
 				99980C532B03CAC4007781E7 /* OnboardingViewController.swift in Sources */,
 				99E28A642B06522900FFB000 /* MoveMoneyViewController.swift in Sources */,
