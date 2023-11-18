@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
         label.font = .boldSystemFont(ofSize: 40)
         label.textAlignment = .center
         label.text = L10n.loginTitle
+        label.alpha = 0
         return label
     }()
     private let descriptionLabel: UILabel = {
@@ -26,6 +27,7 @@ class LoginViewController: UIViewController {
         label.font = .systemFont(ofSize: 22, weight: .regular)
         label.numberOfLines = 0
         label.text = L10n.loginDescription
+        label.alpha = 0
         return label
     }()
     private let loginView = LoginView()
@@ -60,6 +62,13 @@ class LoginViewController: UIViewController {
         return loginView.passwordTextField.text
     }
     
+    //For animations:
+    private let leadingEdgeOnScreen: CGFloat = 0
+    private let leadingEdgeOffScreen: CGFloat = -1000
+    
+    var titleLeadingAnchor: NSLayoutConstraint?
+    var descriptionLeadingAnchor: NSLayoutConstraint?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
@@ -71,6 +80,11 @@ class LoginViewController: UIViewController {
         signInButton.configuration?.showsActivityIndicator = false
         loginView.userNameTextField.text = ""
         loginView.passwordTextField.text = ""
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animate()
     }
 }
 
@@ -91,16 +105,21 @@ extension LoginViewController {
         
         //Title Label Constraints
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor),
         ])
+        
+        titleLeadingAnchor = titleLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: leadingEdgeOffScreen)
+        titleLeadingAnchor?.isActive = true
+        
         
         //Description label constraints:
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3),
-            descriptionLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor),
         ])
+        
+        descriptionLeadingAnchor = descriptionLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: leadingEdgeOffScreen)
+        descriptionLeadingAnchor?.isActive = true
         
         //LoginView Constraints
         NSLayoutConstraint.activate([
@@ -161,5 +180,39 @@ extension LoginViewController {
     private func configureView(withMessage message: String) {
         errorMessageLabel.isHidden = false
         errorMessageLabel.text = message
+        shakeButton()
+    }
+    
+    //MARK: Animations
+    private func animate() {
+        let titleAnimation = UIViewPropertyAnimator(duration: 0.5, curve: .easeOut) {
+            self.titleLeadingAnchor?.constant = self.leadingEdgeOnScreen
+            self.view.layoutIfNeeded()
+        }
+        let descriptionAnimation = UIViewPropertyAnimator(duration: 0.5, curve: .easeOut) {
+            self.descriptionLeadingAnchor?.constant = self.leadingEdgeOnScreen
+            self.view.layoutIfNeeded()
+        }
+        let alphaAnimation = UIViewPropertyAnimator(duration: 0.5, curve: .easeOut) {
+            self.titleLabel.alpha = 1
+            self.descriptionLabel.alpha = 1
+        }
+    
+        titleAnimation.startAnimation()
+        descriptionAnimation.startAnimation(afterDelay: 0.3)
+        alphaAnimation.startAnimation(afterDelay: 0.3)
+        
+    }
+    
+    private func shakeButton() {
+        let animation = CAKeyframeAnimation()
+        animation.keyPath = "position.x"
+        animation.values = [0, 10, -10, 10, 0]
+        animation.keyTimes = [0, 0.16, 0.5, 0.83, 1]
+        animation.duration = 1
+        animation.duration = 0.4
+        
+        animation.isAdditive = true
+        signInButton.layer.add(animation, forKey: "shake")
     }
 }

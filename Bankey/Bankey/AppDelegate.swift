@@ -50,8 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func prepMainView() {
         mainTabBarController.setStatusBar()
-        UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().backgroundColor = Colors.appColor
     }
     
 }

@@ -24,8 +24,10 @@ class SummaryHeaderView: UITableViewHeaderFooterView {
         let imageview = UIImageView()
         imageview.contentMode = .scaleAspectFit
         imageview.translatesAutoresizingMaskIntoConstraints = false
-        imageview.image = UIImage(systemName: "sun.max.fill")
+        imageview.image = UIImage(systemName: "sun.max.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 75))
         imageview.tintColor = .systemYellow
+        imageview.contentMode = .top
+        
         return imageview
     }()
     
@@ -69,6 +71,12 @@ class SummaryHeaderView: UITableViewHeaderFooterView {
         return label
     }()
     
+    private let shakeyBellView: ShakeyBellView = {
+        let bell = ShakeyBellView()
+        bell.translatesAutoresizingMaskIntoConstraints = false
+        return bell
+    }()
+    
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         
@@ -86,6 +94,7 @@ class SummaryHeaderView: UITableViewHeaderFooterView {
     func configureContents() {
         
         contentView.addSubview(horizontalStack)
+        contentView.addSubview(shakeyBellView)
         
         horizontalStack.addArrangedSubview(verticalStack)
         horizontalStack.addArrangedSubview(imageview)
@@ -94,15 +103,17 @@ class SummaryHeaderView: UITableViewHeaderFooterView {
         verticalStack.addArrangedSubview(greetingsLabel)
         verticalStack.addArrangedSubview(nameLabel)
         verticalStack.addArrangedSubview(dateLabel)
-        
+
         NSLayoutConstraint.activate([
             horizontalStack.topAnchor.constraint(equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 2),
             horizontalStack.leadingAnchor.constraint(equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 2),
             contentView.trailingAnchor.constraint(equalToSystemSpacingAfter: horizontalStack.trailingAnchor, multiplier: 2).withPriority(.defaultHigh),
             contentView.bottomAnchor.constraint(equalToSystemSpacingBelow: horizontalStack.bottomAnchor, multiplier: 2).withPriority(.defaultHigh),
             
-            imageview.widthAnchor.constraint(equalTo: horizontalStack.heightAnchor, constant: -20),
+            imageview.widthAnchor.constraint(equalTo: horizontalStack.heightAnchor, constant: -30),
             
+            shakeyBellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            shakeyBellView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
         
     }
