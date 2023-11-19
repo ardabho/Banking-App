@@ -28,3 +28,15 @@
 "tabbar.summary" = "Özet";
 "tabbar.move" = "Para Taşı";
 "tabbar.more" = "Daha";
+
+"greeting.goodmorning" = "Günaydın";
+"greeting.goodafternoon" = "Tünaydın";
+"greeting.goodevening" = "İyi Akşamlar";
+"greeting.goodnight" = "İyi Geceler";
+
+"Banking" = "Bankacılık";
+"CreditCard" = "Kredi Kartı";
+"Investment" = "Yatırım";
+
+"currentbalance" = "Mevcut bakiye";
+"value" = "Değer";

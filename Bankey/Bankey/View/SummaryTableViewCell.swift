@@ -21,7 +21,7 @@ class SummaryTableViewCell: UITableViewCell {
     private let typeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Banking"
+        label.text = L10n.banking
         label.font = UIFont.preferredFont(forTextStyle: .caption1)
         return label
     }()
@@ -38,7 +38,7 @@ class SummaryTableViewCell: UITableViewCell {
     private let balanceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Current balance"
+        label.text = L10n.currentBalance
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.textAlignment = .right
         return label
@@ -133,13 +133,13 @@ class SummaryTableViewCell: UITableViewCell {
         balanceAmountLabel.attributedText = vm.balanceAsAttributedString
         switch vm.accountType {
         case .Banking:
-            balanceLabel.text = "Current balance"
+            balanceLabel.text = L10n.currentBalance
             underlineView.backgroundColor = Colors.appColor
         case .CreditCard:
-            balanceLabel.text = "Current balance"
+            balanceLabel.text = L10n.currentBalance
             underlineView.backgroundColor = Colors.orange
         case .Investment:
-            balanceLabel.text = "Value"
+            balanceLabel.text = L10n.value
             underlineView.backgroundColor = Colors.purple
         }
     }

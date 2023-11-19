@@ -13,7 +13,7 @@ class SummaryViewController: UIViewController {
     var accounts: [Account] = []
     
     private lazy var logoutBarButtonItem: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(didTapLogout))
+        let barButtonItem = UIBarButtonItem(title: L10n.buttonLogout, style: .plain, target: self, action: #selector(didTapLogout))
         barButtonItem.tintColor = .black
         return barButtonItem
     }()
@@ -28,12 +28,19 @@ class SummaryViewController: UIViewController {
     
     private let headerView = SummaryHeaderView(frame: .zero)
     
+    private let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpNavigationBar()
         setUpTableView()
-        fetchData(userId: "1")
+        setupRefreshControl()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        fetchData()
     }
     
     private func setUpNavigationBar() {
@@ -61,11 +68,20 @@ class SummaryViewController: UIViewController {
         }
     }
     
-    private func fetchData(userId: String) {
+    private func setupRefreshControl() {
+        refreshControl.tintColor = Colors.appColor
+        refreshControl.addTarget(self, action: #selector(refreshContent), for: .valueChanged)
+        tableview.refreshControl = refreshControl
+    }
+    
+    private func fetchData() {
         let dispatchGroup = DispatchGroup()
         
+        //Random user for sake of testing
+        let userId = String(Int.random(in: 1..<4))
+        
         dispatchGroup.enter()
-        APICaller.shared.fetchProfileData(id: "1") { [weak self] result in
+        APICaller.shared.fetchProfileData(id: userId) { [weak self] result in
             guard let self else { return }
             
             switch result {
@@ -79,7 +95,7 @@ class SummaryViewController: UIViewController {
         
         dispatchGroup.enter()
         
-        APICaller.shared.fetchAccountsData(id: "1") { [weak self] result in
+        APICaller.shared.fetchAccountsData(id: userId) { [weak self] result in
             guard let self else { return }
             
             switch result {
@@ -95,11 +111,16 @@ class SummaryViewController: UIViewController {
         dispatchGroup.notify(queue: .main) { [weak self] in
             print("All url tasks are completed")
             self?.tableview.reloadData()
+            self?.tableview.refreshControl?.endRefreshing()
         }
     }
     
     @objc private func didTapLogout() {
         NotificationCenter.default.post(name: .Logout, object: nil)
+    }
+    
+    @objc private func refreshContent() {
+        fetchData()
     }
     
 }
@@ -137,8 +158,8 @@ extension SummaryViewController: UITableViewDelegate {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
                                                                 SummaryHeaderView.reuseIdentifier) as! SummaryHeaderView
         
-        view.configureHeader(with: HeaderViewModel(welcomeMessage: "Good Morning",
-                                                   name: "\(profile?.firstName ?? "") \(profile?.lastName ?? "")",
+        view.configureHeader(with: HeaderViewModel(
+            name: "\(profile?.firstName ?? "") \(profile?.lastName ?? "")",
                                                    date: Date()))
         return view
     }

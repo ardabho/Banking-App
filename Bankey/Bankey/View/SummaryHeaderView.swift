@@ -8,7 +8,6 @@
 import UIKit
 
 struct HeaderViewModel {
-    let welcomeMessage: String
     let name: String
     let date: Date
     
@@ -129,8 +128,37 @@ class SummaryHeaderView: UITableViewHeaderFooterView {
         
     }
     
+    private func getGreeting() -> (String, UIImage) {
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: Date())
+        var image = UIImage()
+        switch hour {
+            
+        case 6..<12:
+            image = UIImage(systemName: "sun.and.horizon", withConfiguration: UIImage.SymbolConfiguration(pointSize: 75))!
+            return (L10n.goodMorning, image)
+            
+        case 12..<17:
+            image = UIImage(systemName: "sun.max.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 75))!
+            return (L10n.goodAfternoon, image)
+            
+        case 17..<22:
+            image = UIImage(systemName: "moon.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 75))!
+            return (L10n.goodEvening, image)
+            
+        default:
+            image =  UIImage(systemName: "moon.zzz.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 75))!
+            return (L10n.goodNight, image)
+        }
+    }
+    
     func configureHeader(with viewModel: HeaderViewModel) {
-        self.greetingsLabel.text = viewModel.welcomeMessage
+        let headerTuple = getGreeting()
+        let headerGreeting = headerTuple.0
+        let headerImage = headerTuple.1
+        
+        self.greetingsLabel.text = headerGreeting
+        self.imageview.image = headerImage
         self.nameLabel.text = viewModel.name
         self.dateLabel.text = viewModel.dateFormatted
     }

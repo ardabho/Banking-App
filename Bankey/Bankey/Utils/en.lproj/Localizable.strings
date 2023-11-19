@@ -28,3 +28,15 @@
 "tabbar.summary" = "Summary";
 "tabbar.move" = "Move Money";
 "tabbar.more" = "More";
+
+"greeting.goodmorning" = "Good Morning";
+"greeting.goodafternoon" = "Good Afternoon";
+"greeting.goodevening" = "Good Evening";
+"greeting.goodnight" = "Good Night";
+
+"Banking" = "Banking";
+"CreditCard" = "CreditCard";
+"Investment" = "Investment";
+
+"currentbalance" = "Current balance";
+"value" = "Value";

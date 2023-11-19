@@ -30,5 +30,17 @@ class L10n {
     static let summary = NSLocalizedString("tabbar.summary", comment: "tab bar text: summary")
     static let moveMoney = NSLocalizedString("tabbar.move", comment: "tab bar text: move")
     static let more = NSLocalizedString("tabbar.more", comment: "tab bar text: more")
+    
+    static let goodMorning = NSLocalizedString("greeting.goodmorning", comment: "greeting")
+    static let goodAfternoon = NSLocalizedString("greeting.goodafternoon", comment: "greeting")
+    static let goodEvening = NSLocalizedString("greeting.goodevening", comment: "greeting")
+    static let goodNight = NSLocalizedString("greeting.goodnight", comment: "greeting")
+    
+    static let banking = NSLocalizedString("Banking", comment: "Banking category")
+    static let creditCard = NSLocalizedString("CreditCard", comment: "Credit Card category")
+    static let investment = NSLocalizedString("Investment", comment: "Investment category")
+    
+    static let currentBalance = NSLocalizedString("currentbalance", comment: "Current balance label")
+    static let value = NSLocalizedString("value", comment: "Value label")
 }
 
