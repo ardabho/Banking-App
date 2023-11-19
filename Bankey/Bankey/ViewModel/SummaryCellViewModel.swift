@@ -7,16 +7,6 @@
 
 import Foundation
 
-enum AccountType: String {
-    case Banking
-    case CreditCard
-    case Investment
-
-    var localizedString: String {
-        return NSLocalizedString(self.rawValue, comment: "")
-    }
-}
-
 struct SummaryCellViewModel {
     let accountType: AccountType
     let accountName: String

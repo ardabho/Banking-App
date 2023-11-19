@@ -64,11 +64,13 @@ extension AppDelegate {
         
         window.rootViewController = vc
         window.makeKeyAndVisible()
-        UIView.transition(with: window,
-                          duration: 0.3,
-                          options: .transitionCrossDissolve,
-                          animations: nil,
-                          completion: nil)
+        UIView.transition(
+            with: window,
+            duration: 0.3,
+            options: .transitionCrossDissolve,
+            animations: nil,
+            completion: nil
+        )
     }
 }
 

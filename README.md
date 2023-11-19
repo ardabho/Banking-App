@@ -6,3 +6,4 @@ A banking app practice
 - Localization
 - Unit Tests
 - Notification Center
+- Alamofire
