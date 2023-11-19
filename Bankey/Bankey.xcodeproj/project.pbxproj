@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		9909744C2B0600D900E54913 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9909744B2B0600D900E54913 /* Protocols.swift */; };
+		9962CB782B0A606D0087AAD5 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9962CB772B0A606D0087AAD5 /* APICaller.swift */; };
+		9962CB7B2B0A67060087AAD5 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9962CB7A2B0A67060087AAD5 /* Profile.swift */; };
+		9962CB7D2B0A691A0087AAD5 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9962CB7C2B0A691A0087AAD5 /* Date+Utils.swift */; };
+		9962CB7F2B0A6B0E0087AAD5 /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9962CB7E2B0A6B0E0087AAD5 /* Accounts.swift */; };
+		9962CB812B0A7B600087AAD5 /* ProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9962CB802B0A7B600087AAD5 /* ProfileTests.swift */; };
+		9962CB852B0A7CE90087AAD5 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9962CB842B0A7CE90087AAD5 /* AccountTests.swift */; };
 		99980C292B027399007781E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99980C282B027399007781E7 /* AppDelegate.swift */; };
 		99980C2D2B027399007781E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99980C2C2B027399007781E7 /* LoginViewController.swift */; };
 		99980C322B02739B007781E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99980C312B02739B007781E7 /* Assets.xcassets */; };
@@ -30,6 +36,8 @@
 		99E28A6C2B07644800FFB000 /* SummaryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A6B2B07644800FFB000 /* SummaryCellViewModel.swift */; };
 		99E28A6E2B0791B900FFB000 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A6D2B0791B900FFB000 /* CurrencyFormatter.swift */; };
 		99E28A7D2B07BCE600FFB000 /* CurrencyFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E28A7C2B07BCE600FFB000 /* CurrencyFormatterTests.swift */; };
+		C85A62946168ADCC9BE27A5D /* Pods_BankeyUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F3A35D66653FF84F315D5A /* Pods_BankeyUnitTests.framework */; };
+		E632209CB60CF1F65B6FCCB6 /* Pods_Bankey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280960D4E00C920706D2925D /* Pods_Bankey.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +51,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05B50902EA3CA9F8917FCA3E /* Pods-BankeyUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BankeyUnitTests.release.xcconfig"; path = "Target Support Files/Pods-BankeyUnitTests/Pods-BankeyUnitTests.release.xcconfig"; sourceTree = "<group>"; };
+		15B0521A314337D7C03DCC62 /* Pods-Bankey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bankey.debug.xcconfig"; path = "Target Support Files/Pods-Bankey/Pods-Bankey.debug.xcconfig"; sourceTree = "<group>"; };
+		1762AA41E1031B589C48C3A7 /* Pods-Bankey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bankey.release.xcconfig"; path = "Target Support Files/Pods-Bankey/Pods-Bankey.release.xcconfig"; sourceTree = "<group>"; };
+		280960D4E00C920706D2925D /* Pods_Bankey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bankey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		89F3A35D66653FF84F315D5A /* Pods_BankeyUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BankeyUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9909744B2B0600D900E54913 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		9962CB772B0A606D0087AAD5 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		9962CB7A2B0A67060087AAD5 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		9962CB7C2B0A691A0087AAD5 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
+		9962CB7E2B0A6B0E0087AAD5 /* Accounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
+		9962CB802B0A7B600087AAD5 /* ProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTests.swift; sourceTree = "<group>"; };
+		9962CB842B0A7CE90087AAD5 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		99980C252B027399007781E7 /* Bankey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bankey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99980C282B027399007781E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99980C2C2B027399007781E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +89,7 @@
 		99E28A6D2B0791B900FFB000 /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		99E28A732B07BB4700FFB000 /* BankeyUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankeyUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99E28A7C2B07BCE600FFB000 /* CurrencyFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatterTests.swift; sourceTree = "<group>"; };
+		E8B5FB687E4E7566AF3E4A4E /* Pods-BankeyUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BankeyUnitTests.debug.xcconfig"; path = "Target Support Files/Pods-BankeyUnitTests/Pods-BankeyUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E632209CB60CF1F65B6FCCB6 /* Pods_Bankey.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,18 +105,58 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C85A62946168ADCC9BE27A5D /* Pods_BankeyUnitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E8ED145C6C9CF5800C7F1E5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15B0521A314337D7C03DCC62 /* Pods-Bankey.debug.xcconfig */,
+				1762AA41E1031B589C48C3A7 /* Pods-Bankey.release.xcconfig */,
+				E8B5FB687E4E7566AF3E4A4E /* Pods-BankeyUnitTests.debug.xcconfig */,
+				05B50902EA3CA9F8917FCA3E /* Pods-BankeyUnitTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9962CB792B0A66D60087AAD5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9962CB7A2B0A67060087AAD5 /* Profile.swift */,
+				9962CB7E2B0A6B0E0087AAD5 /* Accounts.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9962CB822B0A7B660087AAD5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				99E28A7C2B07BCE600FFB000 /* CurrencyFormatterTests.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9962CB832B0A7B710087AAD5 /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				9962CB802B0A7B600087AAD5 /* ProfileTests.swift */,
+				9962CB842B0A7CE90087AAD5 /* AccountTests.swift */,
+			);
+			path = Summary;
+			sourceTree = "<group>";
+		};
 		99980C1C2B027399007781E7 = {
 			isa = PBXGroup;
 			children = (
 				99980C272B027399007781E7 /* Bankey */,
 				99E28A742B07BB4700FFB000 /* BankeyUnitTests */,
 				99980C262B027399007781E7 /* Products */,
+				1E8ED145C6C9CF5800C7F1E5 /* Pods */,
+				F6ED34572824561FB5F7847D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,11 +173,13 @@
 			isa = PBXGroup;
 			children = (
 				99980C282B027399007781E7 /* AppDelegate.swift */,
-				99E28A552B0644A800FFB000 /* Controller */,
+				9962CB792B0A66D60087AAD5 /* Model */,
 				99E28A542B06449A00FFB000 /* View */,
 				99E28A532B06449000FFB000 /* ViewModel */,
+				99E28A552B0644A800FFB000 /* Controller */,
 				99E28A4E2B063FD500FFB000 /* Utils */,
 				99980C3C2B027F4B007781E7 /* Resources */,
+				9962CB772B0A606D0087AAD5 /* APICaller.swift */,
 			);
 			path = Bankey;
 			sourceTree = "<group>";
@@ -141,6 +204,7 @@
 				99E28A5F2B064EDA00FFB000 /* Extensions.swift */,
 				99E28A612B06506D00FFB000 /* Colors.swift */,
 				99E28A6D2B0791B900FFB000 /* CurrencyFormatter.swift */,
+				9962CB7C2B0A691A0087AAD5 /* Date+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -205,9 +269,19 @@
 		99E28A742B07BB4700FFB000 /* BankeyUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				99E28A7C2B07BCE600FFB000 /* CurrencyFormatterTests.swift */,
+				9962CB832B0A7B710087AAD5 /* Summary */,
+				9962CB822B0A7B660087AAD5 /* Utils */,
 			);
 			path = BankeyUnitTests;
+			sourceTree = "<group>";
+		};
+		F6ED34572824561FB5F7847D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				280960D4E00C920706D2925D /* Pods_Bankey.framework */,
+				89F3A35D66653FF84F315D5A /* Pods_BankeyUnitTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,9 +291,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99980C392B02739B007781E7 /* Build configuration list for PBXNativeTarget "Bankey" */;
 			buildPhases = (
+				2C74BC004B5A14AA6CB6908B /* [CP] Check Pods Manifest.lock */,
 				99980C212B027399007781E7 /* Sources */,
 				99980C222B027399007781E7 /* Frameworks */,
 				99980C232B027399007781E7 /* Resources */,
+				598CC0059A8275F458C27952 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -234,6 +310,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99E28A792B07BB4700FFB000 /* Build configuration list for PBXNativeTarget "BankeyUnitTests" */;
 			buildPhases = (
+				8F86533604C25D5DF54A3484 /* [CP] Check Pods Manifest.lock */,
 				99E28A6F2B07BB4700FFB000 /* Sources */,
 				99E28A702B07BB4700FFB000 /* Frameworks */,
 				99E28A712B07BB4700FFB000 /* Resources */,
@@ -308,6 +385,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2C74BC004B5A14AA6CB6908B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bankey-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		598CC0059A8275F458C27952 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bankey/Pods-Bankey-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bankey/Pods-Bankey-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bankey/Pods-Bankey-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F86533604C25D5DF54A3484 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BankeyUnitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		99980C212B027399007781E7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -316,16 +457,20 @@
 				99E28A6C2B07644800FFB000 /* SummaryCellViewModel.swift in Sources */,
 				99E28A662B06523200FFB000 /* MoreViewController.swift in Sources */,
 				99980C4E2B037E75007781E7 /* L10n.swift in Sources */,
+				9962CB782B0A606D0087AAD5 /* APICaller.swift in Sources */,
 				99E28A512B063FF200FFB000 /* LocalState.swift in Sources */,
 				99C222702B0908E8008437D5 /* ShakeyBellView.swift in Sources */,
 				99E28A5B2B064C6A00FFB000 /* MainTabBarController.swift in Sources */,
 				99980C532B03CAC4007781E7 /* OnboardingViewController.swift in Sources */,
 				99E28A642B06522900FFB000 /* MoveMoneyViewController.swift in Sources */,
 				99E28A6E2B0791B900FFB000 /* CurrencyFormatter.swift in Sources */,
+				9962CB7B2B0A67060087AAD5 /* Profile.swift in Sources */,
 				99E28A6A2B06B80100FFB000 /* SummaryTableViewCell.swift in Sources */,
+				9962CB7F2B0A6B0E0087AAD5 /* Accounts.swift in Sources */,
 				99E28A5E2B064D4600FFB000 /* SummaryViewController.swift in Sources */,
 				9909744C2B0600D900E54913 /* Protocols.swift in Sources */,
 				99980C3F2B028198007781E7 /* LoginView.swift in Sources */,
+				9962CB7D2B0A691A0087AAD5 /* Date+Utils.swift in Sources */,
 				99980C2D2B027399007781E7 /* LoginViewController.swift in Sources */,
 				99E28A622B06506D00FFB000 /* Colors.swift in Sources */,
 				99E28A682B06989800FFB000 /* SummaryHeaderView.swift in Sources */,
@@ -340,6 +485,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				99E28A7D2B07BCE600FFB000 /* CurrencyFormatterTests.swift in Sources */,
+				9962CB852B0A7CE90087AAD5 /* AccountTests.swift in Sources */,
+				9962CB812B0A7B600087AAD5 /* ProfileTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +639,7 @@
 		};
 		99980C3A2B02739B007781E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15B0521A314337D7C03DCC62 /* Pods-Bankey.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -517,6 +665,7 @@
 		};
 		99980C3B2B02739B007781E7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1762AA41E1031B589C48C3A7 /* Pods-Bankey.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -542,6 +691,7 @@
 		};
 		99E28A7A2B07BB4700FFB000 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8B5FB687E4E7566AF3E4A4E /* Pods-BankeyUnitTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -561,6 +711,7 @@
 		};
 		99E28A7B2B07BB4700FFB000 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05B50902EA3CA9F8917FCA3E /* Pods-BankeyUnitTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;

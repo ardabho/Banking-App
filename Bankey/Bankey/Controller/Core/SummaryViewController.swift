@@ -9,7 +9,8 @@ import UIKit
 
 class SummaryViewController: UIViewController {
     
-    var accounts: [SummaryCellViewModel] = []
+    var profile: Profile?
+    var accounts: [Account] = []
     
     private lazy var logoutBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(didTapLogout))
@@ -25,12 +26,14 @@ class SummaryViewController: UIViewController {
         return tableview
     }()
     
+    private let headerView = SummaryHeaderView(frame: .zero)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpNavigationBar()
         setUpTableView()
-        fetchData()
+        fetchData(userId: "1")
     }
     
     private func setUpNavigationBar() {
@@ -44,48 +47,55 @@ class SummaryViewController: UIViewController {
         tableview.delegate = self
         tableview.dataSource = self
         
-        tableview.rowHeight = SummaryTableViewCell.cellHeight
-        tableview.backgroundColor = Colors.appColor
-        
-        if #available(iOS 15.0, *) {
-            tableview.sectionHeaderTopPadding = 0
-        }
-        
         NSLayoutConstraint.activate([
             tableview.topAnchor.constraint(equalTo: view.topAnchor),
             tableview.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableview.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableview.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
+        
+        tableview.rowHeight = SummaryTableViewCell.cellHeight
+        tableview.backgroundColor = Colors.appColor
+        if #available(iOS 15.0, *) {
+            tableview.sectionHeaderTopPadding = 0
+        }
     }
     
-    private func fetchData() {
-        let savings = SummaryCellViewModel(accountType: .Banking,
-                                           accountName: "Basic Savings",
-                                           balance: 929466.23)
-        let chequing = SummaryCellViewModel(accountType: .Banking,
-                                            accountName: "No-Fee All-In Chequing",
-                                            balance: 17562.44)
-        let visa = SummaryCellViewModel(accountType: .CreditCard,
-                                        accountName: "Visa Avion Card",
-                                        balance: 412.83)
-        let masterCard = SummaryCellViewModel(accountType: .CreditCard,
-                                              accountName: "Student Mastercard",
-                                              balance: 50.83)
-        let investment1 = SummaryCellViewModel(accountType: .Investment,
-                                               accountName: "Tax-Free Saver",
-                                               balance: 2000.00)
-        let investment2 = SummaryCellViewModel(accountType: .Investment,
-                                               accountName: "Growth Fund",
-                                               balance: 15000.00)
+    private func fetchData(userId: String) {
+        let dispatchGroup = DispatchGroup()
         
-        accounts.append(savings)
-        accounts.append(chequing)
-        accounts.append(visa)
-        accounts.append(masterCard)
-        accounts.append(investment1)
-        accounts.append(investment2)
+        dispatchGroup.enter()
+        APICaller.shared.fetchProfileData(id: "1") { [weak self] result in
+            guard let self else { return }
+            
+            switch result {
+            case .success(let profile):
+                self.profile = profile
+            case .failure(let error):
+                print(error)
+            }
+            dispatchGroup.leave()
+        }
         
+        dispatchGroup.enter()
+        
+        APICaller.shared.fetchAccountsData(id: "1") { [weak self] result in
+            guard let self else { return }
+            
+            switch result {
+            case .success(let accounts):
+                self.accounts = accounts
+
+            case .failure(let error):
+                print(error)
+            }
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.notify(queue: .main) { [weak self] in
+            print("All url tasks are completed")
+            self?.tableview.reloadData()
+        }
     }
     
     @objc private func didTapLogout() {
@@ -106,7 +116,8 @@ extension SummaryViewController: UITableViewDataSource {
         }
         
         let account = accounts[indexPath.row]
-        cell.configure(with: account)
+        
+        cell.configure(with: SummaryCellViewModel(accountType: account.type, accountName: account.name, balance: account.amount))
         
         
         return cell
@@ -126,6 +137,9 @@ extension SummaryViewController: UITableViewDelegate {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
                                                                 SummaryHeaderView.reuseIdentifier) as! SummaryHeaderView
         
+        view.configureHeader(with: HeaderViewModel(welcomeMessage: "Good Morning",
+                                                   name: "\(profile?.firstName ?? "") \(profile?.lastName ?? "")",
+                                                   date: Date()))
         return view
     }
     

@@ -7,6 +7,16 @@
 
 import UIKit
 
+struct HeaderViewModel {
+    let welcomeMessage: String
+    let name: String
+    let date: Date
+    
+    var dateFormatted: String {
+        return date.monthDayYearString
+    }
+}
+
 class SummaryHeaderView: UITableViewHeaderFooterView {
     
     static let reuseIdentifier = "SummaryHeaderView"
@@ -55,8 +65,6 @@ class SummaryHeaderView: UITableViewHeaderFooterView {
         return label
     }()
     
-
-    
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .callout)
@@ -93,7 +101,7 @@ class SummaryHeaderView: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureContents() {
+    private func configureContents() {
         
         contentView.addSubview(horizontalStack)
         contentView.addSubview(shakeyBellView)
@@ -120,4 +128,12 @@ class SummaryHeaderView: UITableViewHeaderFooterView {
         ])
         
     }
+    
+    func configureHeader(with viewModel: HeaderViewModel) {
+        self.greetingsLabel.text = viewModel.welcomeMessage
+        self.nameLabel.text = viewModel.name
+        self.dateLabel.text = viewModel.dateFormatted
+    }
+    
+    
 }
