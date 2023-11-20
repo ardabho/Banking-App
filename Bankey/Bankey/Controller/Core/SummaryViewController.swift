@@ -11,7 +11,9 @@ class SummaryViewController: UIViewController {
     
     var profile: Profile?
     var accounts: [Account] = []
+    var isLoaded = false
     
+    //Components
     private lazy var logoutBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(title: L10n.buttonLogout, style: .plain, target: self, action: #selector(didTapLogout))
         barButtonItem.tintColor = .black
@@ -23,6 +25,7 @@ class SummaryViewController: UIViewController {
         tableview.translatesAutoresizingMaskIntoConstraints = false
         tableview.register(SummaryHeaderView.self, forHeaderFooterViewReuseIdentifier: SummaryHeaderView.reuseIdentifier)
         tableview.register(SummaryTableViewCell.self, forCellReuseIdentifier: SummaryTableViewCell.reuseIdentifier)
+        tableview.register(SkeletonTableViewCell.self, forCellReuseIdentifier: SkeletonTableViewCell.reuseIdentifier)
         return tableview
     }()
     
@@ -30,6 +33,7 @@ class SummaryViewController: UIViewController {
     
     private let refreshControl = UIRefreshControl()
     
+    //Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,6 +47,7 @@ class SummaryViewController: UIViewController {
         fetchData()
     }
     
+    //Setup Functions
     private func setUpNavigationBar() {
         navigationItem.rightBarButtonItem = logoutBarButtonItem
     }
@@ -74,6 +79,7 @@ class SummaryViewController: UIViewController {
         tableview.refreshControl = refreshControl
     }
     
+    //Fetch Data
     private func fetchData() {
         let dispatchGroup = DispatchGroup()
         
@@ -101,7 +107,7 @@ class SummaryViewController: UIViewController {
             switch result {
             case .success(let accounts):
                 self.accounts = accounts
-
+                
             case .failure(let error):
                 print(error)
             }
@@ -109,40 +115,38 @@ class SummaryViewController: UIViewController {
         }
         
         dispatchGroup.notify(queue: .main) { [weak self] in
-            print("All url tasks are completed")
-            self?.tableview.reloadData()
             self?.tableview.refreshControl?.endRefreshing()
+            self?.isLoaded = true
+            self?.tableview.reloadData()
         }
     }
-    
-    @objc private func didTapLogout() {
-        NotificationCenter.default.post(name: .Logout, object: nil)
-    }
-    
-    @objc private func refreshContent() {
-        fetchData()
-    }
-    
 }
 
 //MARK: DATA SOURCE
 extension SummaryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        accounts.count
+        return isLoaded ? accounts.count : 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SummaryTableViewCell.reuseIdentifier, for: indexPath) as? SummaryTableViewCell else {
-            return UITableViewCell()
+        
+        if isLoaded {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SummaryTableViewCell.reuseIdentifier, for: indexPath) as? SummaryTableViewCell else {
+                        return UITableViewCell()
+                    }
+                    let account = accounts[indexPath.row]
+                    cell.configure(with: SummaryCellViewModel(accountType: account.type, accountName: account.name, balance: account.amount))
+                    return cell
+
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SkeletonTableViewCell.reuseIdentifier, for: indexPath) as? SkeletonTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            return cell
+            
         }
-        
-        let account = accounts[indexPath.row]
-        
-        cell.configure(with: SummaryCellViewModel(accountType: account.type, accountName: account.name, balance: account.amount))
-        
-        
-        return cell
-        
+                
     }
     
 }
@@ -160,12 +164,29 @@ extension SummaryViewController: UITableViewDelegate {
         
         view.configureHeader(with: HeaderViewModel(
             name: "\(profile?.firstName ?? "") \(profile?.lastName ?? "")",
-                                                   date: Date()))
+            date: Date()))
         return view
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return SummaryHeaderView.headerHeight
+    }
+}
+
+//MARK: Actions
+extension SummaryViewController {
+    @objc private func didTapLogout() {
+        NotificationCenter.default.post(name: .Logout, object: nil)
+    }
+    
+    @objc private func refreshContent() {
+        accounts = []
+        profile = nil
+        isLoaded = false
+        DispatchQueue.main.async {
+            self.tableview.reloadData()
+        }
+        fetchData()
     }
 }
 

@@ -7,15 +7,6 @@
 
 import UIKit
 
-struct HeaderViewModel {
-    let name: String
-    let date: Date
-    
-    var dateFormatted: String {
-        return date.monthDayYearString
-    }
-}
-
 class SummaryHeaderView: UITableViewHeaderFooterView {
     
     static let reuseIdentifier = "SummaryHeaderView"

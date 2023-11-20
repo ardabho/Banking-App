@@ -14,6 +14,8 @@
 		9962CB7F2B0A6B0E0087AAD5 /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9962CB7E2B0A6B0E0087AAD5 /* Accounts.swift */; };
 		9962CB812B0A7B600087AAD5 /* ProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9962CB802B0A7B600087AAD5 /* ProfileTests.swift */; };
 		9962CB852B0A7CE90087AAD5 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9962CB842B0A7CE90087AAD5 /* AccountTests.swift */; };
+		9962CB872B0AAE3A0087AAD5 /* HeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9962CB862B0AAE3A0087AAD5 /* HeaderViewModel.swift */; };
+		9962CB892B0B6B430087AAD5 /* SkeletonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9962CB882B0B6B430087AAD5 /* SkeletonTableViewCell.swift */; };
 		99980C292B027399007781E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99980C282B027399007781E7 /* AppDelegate.swift */; };
 		99980C2D2B027399007781E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99980C2C2B027399007781E7 /* LoginViewController.swift */; };
 		99980C322B02739B007781E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99980C312B02739B007781E7 /* Assets.xcassets */; };
@@ -63,6 +65,8 @@
 		9962CB7E2B0A6B0E0087AAD5 /* Accounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
 		9962CB802B0A7B600087AAD5 /* ProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTests.swift; sourceTree = "<group>"; };
 		9962CB842B0A7CE90087AAD5 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
+		9962CB862B0AAE3A0087AAD5 /* HeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewModel.swift; sourceTree = "<group>"; };
+		9962CB882B0B6B430087AAD5 /* SkeletonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonTableViewCell.swift; sourceTree = "<group>"; };
 		99980C252B027399007781E7 /* Bankey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bankey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99980C282B027399007781E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99980C2C2B027399007781E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				99E28A6B2B07644800FFB000 /* SummaryCellViewModel.swift */,
+				9962CB862B0AAE3A0087AAD5 /* HeaderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 				99E28A672B06989800FFB000 /* SummaryHeaderView.swift */,
 				99E28A692B06B80100FFB000 /* SummaryTableViewCell.swift */,
 				99C2226F2B0908E8008437D5 /* ShakeyBellView.swift */,
+				9962CB882B0B6B430087AAD5 /* SkeletonTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -233,7 +239,6 @@
 			children = (
 				99E28A562B0644D800FFB000 /* Core */,
 				99E28A5C2B064C9100FFB000 /* Login */,
-				99E28A572B0644E700FFB000 /* Other */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -247,13 +252,6 @@
 				99E28A652B06523200FFB000 /* MoreViewController.swift */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		99E28A572B0644E700FFB000 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Other;
 			sourceTree = "<group>";
 		};
 		99E28A5C2B064C9100FFB000 /* Login */ = {
@@ -459,9 +457,11 @@
 				99980C4E2B037E75007781E7 /* L10n.swift in Sources */,
 				9962CB782B0A606D0087AAD5 /* APICaller.swift in Sources */,
 				99E28A512B063FF200FFB000 /* LocalState.swift in Sources */,
+				9962CB872B0AAE3A0087AAD5 /* HeaderViewModel.swift in Sources */,
 				99C222702B0908E8008437D5 /* ShakeyBellView.swift in Sources */,
 				99E28A5B2B064C6A00FFB000 /* MainTabBarController.swift in Sources */,
 				99980C532B03CAC4007781E7 /* OnboardingViewController.swift in Sources */,
+				9962CB892B0B6B430087AAD5 /* SkeletonTableViewCell.swift in Sources */,
 				99E28A642B06522900FFB000 /* MoveMoneyViewController.swift in Sources */,
 				99E28A6E2B0791B900FFB000 /* CurrencyFormatter.swift in Sources */,
 				9962CB7B2B0A67060087AAD5 /* Profile.swift in Sources */,
